@@ -1,69 +1,131 @@
-import Image from "next/image";
+import { prisma } from "@/lib/prisma";
+import Navbar from "@/components/navigation/Navbar";
+import Footer from "@/components/navigation/Footer";
+import HeroSection from "@/components/home/HeroSection";
+import BrandStatement from "@/components/home/BrandStatement";
+import ServicesSection from "@/components/home/ServicesSection";
+import ProjectShowcase from "@/components/home/ProjectShowcase";
+import ThreeDViewer from "@/components/home/ThreeDViewer";
+import WhyVijaySection from "@/components/home/WhyVijaySection";
+import BeforeAfterSlider from "@/components/home/BeforeAfterSlider";
+import ProcessSection from "@/components/home/ProcessSection";
+import CraftsmanshipMaterials from "@/components/home/CraftsmanshipMaterials";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+import LeadEnquirySection from "@/components/home/LeadEnquirySection";
+import MobileStickyBar from "@/components/shared/MobileStickyBar";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  // Query all database records concurrently for performance
+  const [
+    services,
+    projects,
+    materials,
+    stats,
+    testimonials,
+    rawSettings,
+  ] = await Promise.all([
+    prisma.service.findMany({
+      where: { isPublished: true },
+      orderBy: { sortOrder: "asc" },
+    }),
+    prisma.project.findMany({
+      where: { isPublished: true },
+      orderBy: { sortOrder: "asc" },
+    }),
+    prisma.material.findMany({
+      orderBy: { sortOrder: "asc" },
+    }),
+    prisma.statItem.findMany({
+      orderBy: { sortOrder: "asc" },
+    }),
+    prisma.testimonial.findMany({
+      where: { isPublished: true },
+      orderBy: { sortOrder: "asc" },
+    }),
+    prisma.siteSetting.findMany(),
+  ]);
+
+  // Convert settings array into key-value map
+  const settings: Record<string, string> = {};
+  rawSettings.forEach((s) => {
+    settings[s.key] = s.value;
+  });
+
+  const phone = settings.phone || "+91 98765 43210";
+  const whatsapp = settings.whatsapp || "+91 98765 43210";
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="relative min-h-screen flex flex-col bg-[#FBF9F5]">
+      {/* JSON-LD Structured Data for LocalBusiness & HomeAndConstructionBusiness */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HomeAndConstructionBusiness",
+            "name": settings.business_name || "Vijay Interior & Construction",
+            "description":
+              settings.tagline ||
+              "Premium Interior Design, Architecture & Turnkey Construction Company",
+            "telephone": phone,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": settings.address || "Plot 42, Architectural Enclave",
+              "addressLocality": "New Delhi",
+              "addressCountry": "IN",
+            },
+            "priceRange": "₹₹₹₹",
+            "openingHours": "Mo-Sa 09:30-19:00",
+          }),
+        }}
+      />
+
+      {/* Sticky Navigation */}
+      <Navbar phone={phone} whatsapp={whatsapp} />
+
+      {/* Main Content Sections in Prompt-Specified Sequence */}
+      <main className="flex-1">
+        {/* 1. Premium Cinematic Hero */}
+        <HeroSection />
+
+        {/* 2. Brand Editorial Statement */}
+        <BrandStatement />
+
+        {/* 3. Interactive Horizontal Services */}
+        <ServicesSection services={services} />
+
+        {/* 4. Selected Projects Masonry Showcase */}
+        <ProjectShowcase projects={projects} />
+
+        {/* 5. 3D Architectural Spatial Experience */}
+        <ThreeDViewer />
+
+        {/* 6. Why Vijay Trust Metrics */}
+        <WhyVijaySection stats={stats} />
+
+        {/* 7. Before / After Transformation Slider */}
+        <BeforeAfterSlider />
+
+        {/* 8. 9-Stage Architectural Process */}
+        <ProcessSection />
+
+        {/* 9. Craftsmanship & Materials Showcase */}
+        <CraftsmanshipMaterials materials={materials} />
+
+        {/* 10. Client Testimonials */}
+        <TestimonialsSection testimonials={testimonials} />
+
+        {/* 11. Lead Generation / Consultation */}
+        <LeadEnquirySection phone={phone} whatsapp={whatsapp} />
       </main>
+
+      {/* 12. Architectural Footer */}
+      <Footer settings={settings} />
+
+      {/* Dedicated Mobile Sticky Action Bar */}
+      <MobileStickyBar phone={phone} whatsapp={whatsapp} />
     </div>
   );
 }

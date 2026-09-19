@@ -1,0 +1,146 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("ADMIN")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Project {
+  id            String   @id @default(cuid())
+  title         String
+  slug          String   @unique
+  category      String   // Residential, Commercial, Luxury Interiors, Renovation, Construction
+  location      String
+  year          String
+  area          String   // e.g. 4,500 sq.ft
+  clientType    String   @default("Private Client")
+  overview      String
+  concept       String
+  challenge     String
+  solution      String
+  execution     String
+  results       String
+  materialsUsed String   // Comma-separated or JSON
+  coverImage    String
+  galleryImages String   // JSON array string of image URLs
+  beforeImage   String?
+  afterImage    String?
+  isFeatured    Boolean  @default(false)
+  isPublished   Boolean  @default(true)
+  sortOrder     Int      @default(0)
+  seoTitle      String?
+  seoDesc       String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  number      String   // e.g. "01", "02"
+  shortDesc   String
+  longDesc    String
+  icon        String   // Lucide icon name
+  coverImage  String
+  features    String   // JSON array of key highlights
+  isPublished Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  seoTitle    String?
+  seoDesc     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Lead {
+  id                 String     @id @default(cuid())
+  name               String
+  phone              String
+  email              String
+  city               String
+  projectType        String     // Interior Design, Home Construction, Renovation, Commercial Interior, Office, Turnkey Project, Other
+  propertyType       String?    // Apartment, Villa, Office, Penthouse, Standalone
+  approxArea         String?
+  budgetRange        String     // Under ₹5 Lakh, ₹5–10 Lakh, ₹10–20 Lakh, ₹20–50 Lakh, ₹50 Lakh+
+  preferredStartDate String?
+  message            String?
+  status             String     @default("NEW") // NEW, CONTACTED, QUALIFIED, SITE_VISIT, PROPOSAL_SENT, WON, LOST
+  assignedTo         String?
+  notes              LeadNote[]
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+}
+
+model LeadNote {
+  id        String   @id @default(cuid())
+  leadId    String
+  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  author    String
+  note      String
+  createdAt DateTime @default(now())
+}
+
+model Testimonial {
+  id           String   @id @default(cuid())
+  clientName   String
+  projectTitle String
+  location     String
+  review       String
+  rating       Int      @default(5)
+  clientPhoto  String?
+  isPublished  Boolean  @default(true)
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Material {
+  id          String   @id @default(cuid())
+  name        String
+  category    String   // Wood, Marble, Stone, Tiles, Glass, Metal, Fabric, Lighting
+  finish      String
+  application String
+  description String
+  image       String
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model StatItem {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  label     String
+  value     String
+  suffix    String?
+  sortOrder Int      @default(0)
+}
+
+model SiteSetting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model SeoSetting {
+  id          String   @id @default(cuid())
+  pageKey     String   @unique
+  title       String
+  description String
+  ogImage     String?
+  keywords    String?
+  updatedAt   DateTime @updatedAt
+}
