@@ -146,7 +146,7 @@ async function main() {
       shortDesc: "End-to-end reinforced concrete construction, foundation engineering, and structural masonry built to last generations.",
       longDesc: "From deep foundation piles to monolithic RCC roof slabs, our civil construction division operates with industrial rigor. We employ laboratory-tested concrete mixes, seismic tie-beams, precision shuttering, and strict curing regimens.",
       icon: "HardHat",
-      coverImage: "https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1600&q=85",
+      coverImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=75",
       features: JSON.stringify([
         "Soil bearing capacity testing and raft foundation engineering",
         "M25/M30 certified ready-mix concrete structural framing",
@@ -279,7 +279,7 @@ async function main() {
         "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1200&q=80",
         "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80",
       ]),
-      beforeImage: "https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1200&q=80",
+      beforeImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=75",
       afterImage: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80",
       isFeatured: true,
       isPublished: true,
@@ -361,7 +361,7 @@ async function main() {
       coverImage: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=85",
       galleryImages: JSON.stringify([
         "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1556909172-8c07c42e184a?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=1200&q=75",
       ]),
       beforeImage: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1200&q=80",
       afterImage: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80",

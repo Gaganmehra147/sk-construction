@@ -5,7 +5,7 @@ import MobileStickyBar from "@/components/shared/MobileStickyBar";
 import { ShieldCheck, Ruler, Compass, Sparkles, Award, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function AboutPage() {
   const [stats, rawSettings] = await Promise.all([

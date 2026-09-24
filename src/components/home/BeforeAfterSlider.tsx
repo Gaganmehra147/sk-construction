@@ -16,15 +16,15 @@ const TRANSFORMATIONS: TransformationPair[] = [
     title: "Verdant Villa Renovation",
     location: "Koramangala, Bengaluru",
     scope: "Structural Wall Removal & Biophilic Glass Atrium",
-    beforeImage: "https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1600&q=85",
-    afterImage: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=85",
+    beforeImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=75",
+    afterImage: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=75",
   },
   {
     title: "Soma Penthouse Atrium",
     location: "Worli Sea Face, Mumbai",
     scope: "Raw Concrete Shell to Travertine Living Suite",
-    beforeImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=85",
-    afterImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=85",
+    beforeImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=75",
+    afterImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=75",
   },
 ];
 

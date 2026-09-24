@@ -31,7 +31,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out scale-105 opacity-35"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=90')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=75')`,
           transform: `scale(1.05) translate3d(${mousePos.x * -0.5}px, ${mousePos.y * -0.5}px, 0)`,
         }}
       />

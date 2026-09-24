@@ -4,7 +4,7 @@ import Footer from "@/components/navigation/Footer";
 import ProjectShowcase from "@/components/home/ProjectShowcase";
 import MobileStickyBar from "@/components/shared/MobileStickyBar";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function ProjectsArchivePage() {
   const [projects, rawSettings] = await Promise.all([

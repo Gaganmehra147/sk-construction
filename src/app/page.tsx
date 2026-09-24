@@ -14,7 +14,8 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import LeadEnquirySection from "@/components/home/LeadEnquirySection";
 import MobileStickyBar from "@/components/shared/MobileStickyBar";
 
-export const dynamic = "force-dynamic";
+// Incremental Static Regeneration: Instant TTFB cached pages with background revalidation
+export const revalidate = 60;
 
 export default async function HomePage() {
   // Query all database records concurrently for performance

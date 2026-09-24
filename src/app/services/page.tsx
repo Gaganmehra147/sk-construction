@@ -4,7 +4,7 @@ import Footer from "@/components/navigation/Footer";
 import ServicesSection from "@/components/home/ServicesSection";
 import MobileStickyBar from "@/components/shared/MobileStickyBar";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function ServicesArchivePage() {
   const [services, rawSettings] = await Promise.all([

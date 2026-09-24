@@ -5,7 +5,7 @@ import LeadEnquirySection from "@/components/home/LeadEnquirySection";
 import MobileStickyBar from "@/components/shared/MobileStickyBar";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function ContactPage() {
   const rawSettings = await prisma.siteSetting.findMany();
