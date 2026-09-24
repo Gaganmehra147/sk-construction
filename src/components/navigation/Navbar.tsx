@@ -78,16 +78,16 @@ export default function Navbar({ phone = "+91 98765 43210", whatsapp = "+91 9876
           {/* Left: Brand Identity Logo */}
           <Link href="/" className="group flex items-center gap-3 shrink-0">
             <div className="w-8 h-8 sm:w-9 sm:h-9 border border-[#C5A880] flex items-center justify-center transition-transform duration-500 group-hover:rotate-45 bg-[#1C1B1A] text-[#C5A880] shadow-sm shrink-0">
-              <span className="font-serif-heading text-sm font-bold tracking-wider transition-transform duration-500 group-hover:-rotate-45">
-                V
+              <span className="font-serif-heading text-xs sm:text-sm font-bold tracking-wider transition-transform duration-500 group-hover:-rotate-45">
+                SK
               </span>
             </div>
             <div className="flex flex-col justify-center">
               <span className="font-serif-heading text-lg sm:text-xl font-bold tracking-[0.2em] leading-none text-white group-hover:text-[#C5A880] transition-colors whitespace-nowrap">
-                VIJAY
+                SK
               </span>
               <span className="text-[8px] sm:text-[8.5px] uppercase tracking-[0.24em] text-[#C5A880] font-medium leading-none mt-1 whitespace-nowrap">
-                Interior & Construction
+                Construction
               </span>
             </div>
           </Link>
@@ -170,14 +170,14 @@ export default function Navbar({ phone = "+91 98765 43210", whatsapp = "+91 9876
               <div className="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 border border-[#C5A880] flex items-center justify-center bg-[#1C1B1A] text-[#C5A880]">
-                    <span className="font-serif-heading text-sm font-bold">V</span>
+                    <span className="font-serif-heading text-xs font-bold">SK</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="font-serif-heading text-lg font-bold tracking-[0.2em] text-white">
-                      VIJAY
+                      SK
                     </span>
                     <span className="text-[8px] uppercase tracking-[0.26em] text-[#C5A880]">
-                      Interior & Construction
+                      Construction
                     </span>
                   </div>
                 </div>
@@ -231,7 +231,7 @@ export default function Navbar({ phone = "+91 98765 43210", whatsapp = "+91 9876
                   <span>Call Studio</span>
                 </a>
                 <a
-                  href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, "")}?text=Hello%20Vijay%20Interior,%20I%20would%20like%20to%20discuss%20a%20project.`}
+                  href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, "")}?text=Hello%20SK%20Construction,%20I%20would%20like%20to%20discuss%20a%20project.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 py-2.5 border border-[#25D366]/40 text-[#25D366] text-xs tracking-wider hover:bg-[#25D366]/10 transition-colors"

@@ -6,7 +6,7 @@ import BrandStatement from "@/components/home/BrandStatement";
 import ServicesSection from "@/components/home/ServicesSection";
 import ProjectShowcase from "@/components/home/ProjectShowcase";
 import ThreeDViewer from "@/components/home/ThreeDViewer";
-import WhyVijaySection from "@/components/home/WhyVijaySection";
+import WhySKSection from "@/components/home/WhySKSection";
 import BeforeAfterSlider from "@/components/home/BeforeAfterSlider";
 import ProcessSection from "@/components/home/ProcessSection";
 import CraftsmanshipMaterials from "@/components/home/CraftsmanshipMaterials";
@@ -65,7 +65,7 @@ export default async function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "HomeAndConstructionBusiness",
-            "name": settings.business_name || "Vijay Interior & Construction",
+            "name": settings.business_name || "SK Construction",
             "description":
               settings.tagline ||
               "Premium Interior Design, Architecture & Turnkey Construction Company",
@@ -102,8 +102,8 @@ export default async function HomePage() {
         {/* 5. 3D Architectural Spatial Experience */}
         <ThreeDViewer />
 
-        {/* 6. Why Vijay Trust Metrics */}
-        <WhyVijaySection stats={stats} />
+        {/* 6. Why SK Construction Trust Metrics */}
+        <WhySKSection stats={stats} />
 
         {/* 7. Before / After Transformation Slider */}
         <BeforeAfterSlider />

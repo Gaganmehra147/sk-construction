@@ -12,7 +12,7 @@ export default function BrandStatement() {
         <div className="flex items-center justify-between border-b border-[#141414]/10 pb-4 mb-16 text-[11px] font-mono-tech uppercase tracking-[0.22em] text-[#8C827A]">
           <span>[ 01 // MANIFESTO & PHILOSOPHY ]</span>
           <span className="hidden sm:inline">SINGLE-SOURCE ARCHITECTURAL DELIVERY</span>
-          <span>VIJAY STUDIO</span>
+          <span>SK STUDIO</span>
         </div>
 
         {/* Split Screen Editorial Composition */}
@@ -36,7 +36,7 @@ export default function BrandStatement() {
             <p>
               At{" "}
               <strong className="text-[#141414] font-medium">
-                Vijay Interior & Construction
+                SK Construction
               </strong>
               , we believe the built environment is the quiet foundation of human
               well-being. Too often, visionary design collapses during sloppy

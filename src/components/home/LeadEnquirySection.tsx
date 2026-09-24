@@ -124,7 +124,7 @@ export default function LeadEnquirySection({
                 </a>
 
                 <a
-                  href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, "")}?text=Hello%20Vijay%20Interior,%20I%20would%20like%20to%20discuss%20a%20new%20project.`}
+                  href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, "")}?text=Hello%20SK%20Construction,%20I%20would%20like%20to%20discuss%20a%20new%20project.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-4 border border-[#25D366]/30 bg-[#1A1A1A] hover:border-[#25D366] transition-colors"

@@ -6,10 +6,10 @@ interface FooterProps {
 }
 
 export default function Footer({ settings = {} }: FooterProps) {
-  const businessName = settings.business_name || "Vijay Interior & Construction";
+  const businessName = settings.business_name || "SK Construction";
   const phone = settings.phone || "+91 98765 43210";
   const whatsapp = settings.whatsapp || "+91 98765 43210";
-  const email = settings.email || "contact@vijayinterior.com";
+  const email = settings.email || "contact@skconstruction.com";
   const address = settings.address || "Plot 42, Architectural Enclave, Design District, New Delhi 110001";
   const workingHours = settings.working_hours || "Monday – Saturday: 9:30 AM – 7:00 PM";
   const mapsUrl = settings.google_maps_url || "https://maps.google.com";
@@ -48,20 +48,20 @@ export default function Footer({ settings = {} }: FooterProps) {
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 border border-[#C5A880] flex items-center justify-center bg-[#1A1A1A] text-[#C5A880]">
-              <span className="font-serif-heading text-sm font-semibold">V</span>
+              <span className="font-serif-heading text-xs font-semibold">SK</span>
             </div>
             <div className="flex flex-col">
               <span className="font-serif-heading text-lg font-bold tracking-[0.18em] text-white">
-                VIJAY
+                SK
               </span>
               <span className="text-[9px] uppercase tracking-[0.24em] text-[#C5A880]">
-                Interior & Construction
+                Construction
               </span>
             </div>
           </div>
           <p className="text-stone-400 leading-relaxed text-xs max-w-sm">
             {settings.footer_bio ||
-              "Vijay Interior & Construction is a multidisciplinary architecture, interior design, and civil construction studio crafting enduring environments built around the way you live."}
+              "SK Construction is a multidisciplinary architecture, interior design, and civil construction studio crafting enduring environments built around the way you live."}
           </p>
           <div className="pt-2 flex items-center gap-3">
             <a

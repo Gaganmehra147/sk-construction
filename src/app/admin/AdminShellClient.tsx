@@ -90,10 +90,10 @@ export default function AdminShellClient({
 
           <Link href="/admin" className="flex items-center gap-2.5">
             <div className="w-7 h-7 border border-[#C5A880] flex items-center justify-center bg-[#1A1A1A] text-[#C5A880]">
-              <span className="font-serif-heading text-xs font-semibold">V</span>
+              <span className="font-serif-heading text-[10px] font-semibold">SK</span>
             </div>
             <span className="font-serif-heading text-sm font-bold tracking-wider text-white">
-              VIJAY CMS
+              SK CMS
             </span>
           </Link>
         </div>
@@ -126,11 +126,11 @@ export default function AdminShellClient({
               <div className="flex items-center justify-between pb-5 border-b border-white/10 mb-4">
                 <Link href="/admin" className="flex items-center gap-3">
                   <div className="w-8 h-8 border border-[#C5A880] flex items-center justify-center bg-[#1A1A1A] text-[#C5A880]">
-                    <span className="font-serif-heading text-sm font-semibold">V</span>
+                    <span className="font-serif-heading text-xs font-semibold">SK</span>
                   </div>
                   <div>
                     <div className="font-serif-heading text-sm font-bold tracking-wider text-white">
-                      VIJAY CMS
+                      SK CMS
                     </div>
                     <div className="text-[9px] uppercase tracking-widest text-[#C5A880] font-mono-tech">
                       Studio Admin
@@ -203,11 +203,11 @@ export default function AdminShellClient({
           <div className="p-6 border-b border-white/10">
             <Link href="/admin" className="flex items-center gap-3">
               <div className="w-8 h-8 border border-[#C5A880] flex items-center justify-center bg-[#1A1A1A] text-[#C5A880]">
-                <span className="font-serif-heading text-sm font-semibold">V</span>
+                <span className="font-serif-heading text-xs font-semibold">SK</span>
               </div>
               <div className="flex flex-col">
                 <span className="font-serif-heading text-sm font-bold tracking-wider text-white">
-                  VIJAY CMS
+                  SK CMS
                 </span>
                 <span className="text-[9px] uppercase tracking-widest text-[#C5A880] font-mono-tech">
                   Studio Admin
@@ -273,7 +273,7 @@ export default function AdminShellClient({
         <header className="hidden lg:flex h-16 border-b border-white/10 bg-[#141414]/60 backdrop-blur-md px-6 sm:px-8 items-center justify-between sticky top-0 z-30">
           <div className="flex items-center gap-3 text-xs font-mono-tech text-stone-400">
             <span className="text-[#C5A880] font-semibold">[ CONTROL DESK ]</span>
-            <span>Vijay Interior & Construction Management</span>
+            <span>SK Construction Management</span>
           </div>
 
           <div className="flex items-center gap-4 text-xs font-mono-tech">

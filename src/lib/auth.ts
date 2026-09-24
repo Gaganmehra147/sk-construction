@@ -4,10 +4,10 @@ import bcrypt from "bcryptjs";
 import { prisma } from "./prisma";
 
 const JWT_SECRET = new TextEncoder().encode(
-  process.env.JWT_SECRET || "vijay-architectural-super-secret-jwt-key-2026-edition"
+  process.env.JWT_SECRET || "sk-construction-super-secret-jwt-key-2026-edition"
 );
 
-const COOKIE_NAME = "vijay_admin_token";
+const COOKIE_NAME = "sk_admin_token";
 
 export interface AdminSession {
   id: string;

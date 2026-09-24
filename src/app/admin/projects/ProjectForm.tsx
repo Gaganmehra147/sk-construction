@@ -558,7 +558,7 @@ export default function ProjectForm({ initialData, isEdit = false }: ProjectForm
               type="text"
               value={formData.seoTitle}
               onChange={(e) => setFormData({ ...formData, seoTitle: e.target.value })}
-              placeholder="e.g. The Courtyard Residence | Vijay Interior"
+              placeholder="e.g. The Courtyard Residence | SK Construction"
               className="w-full bg-[#1A1A1A] border border-white/15 px-3 py-2 text-xs text-white"
             />
           </div>

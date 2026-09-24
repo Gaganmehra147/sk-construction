@@ -20,11 +20,11 @@ export async function generateMetadata({
   });
 
   if (!service) {
-    return { title: "Service Not Found | Vijay Interior & Construction" };
+    return { title: "Service Not Found | SK Construction" };
   }
 
   return {
-    title: `${service.name} | Vijay Interior & Construction`,
+    title: `${service.name} | SK Construction`,
     description: service.shortDesc,
     openGraph: {
       title: service.name,

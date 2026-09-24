@@ -29,11 +29,11 @@ export async function generateMetadata({
   });
 
   if (!project) {
-    return { title: "Project Not Found | Vijay Interior & Construction" };
+    return { title: "Project Not Found | SK Construction" };
   }
 
   return {
-    title: `${project.title} | Vijay Interior & Construction`,
+    title: `${project.title} | SK Construction`,
     description: project.overview,
     openGraph: {
       title: project.title,

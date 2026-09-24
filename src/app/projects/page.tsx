@@ -39,7 +39,7 @@ export default async function ProjectsArchivePage() {
               Selected Works
             </h1>
             <p className="text-stone-300 text-sm sm:text-base font-light mt-4 max-w-2xl leading-relaxed">
-              An exhaustive chronicle of bespoke residences, commercial flagship headquarters, and transformative structural restorations executed by Vijay Interior & Construction.
+              An exhaustive chronicle of bespoke residences, commercial flagship headquarters, and transformative structural restorations executed by SK Construction.
             </p>
           </div>
         </div>

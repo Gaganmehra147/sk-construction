@@ -26,7 +26,7 @@ export default function MobileStickyBar({
 
       {/* WhatsApp Button */}
       <a
-        href={`https://wa.me/${cleanWa}?text=Hello%20Vijay%20Interior%20%26%20Construction,%20I%20would%20like%20to%20inquire%20about%20a%20project.`}
+        href={`https://wa.me/${cleanWa}?text=Hello%20SK%20Construction,%20I%20would%20like%20to%20inquire%20about%20a%20project.`}
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 py-2 px-2 bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/40 rounded text-[11px] uppercase tracking-wider font-medium hover:bg-[#25D366]/30 active:scale-98 transition-all"

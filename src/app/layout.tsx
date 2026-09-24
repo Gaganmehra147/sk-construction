@@ -34,19 +34,19 @@ export async function generateMetadata(): Promise<Metadata> {
       where: { pageKey: "homepage" },
     });
     return {
-      title: seo?.title || "Vijay Interior & Construction | Luxury Architecture, Interiors & Turnkey Projects",
+      title: seo?.title || "SK Construction | Luxury Architecture, Interiors & Turnkey Projects",
       description:
         seo?.description ||
         "Refined architecture, bespoke residential & commercial interiors, and turnkey civil construction.",
       openGraph: {
-        title: seo?.title || "Vijay Interior & Construction",
+        title: seo?.title || "SK Construction",
         description: seo?.description || "Spaces Designed To Be Lived In.",
         images: [seo?.ogImage || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85"],
       },
     };
   } catch {
     return {
-      title: "Vijay Interior & Construction | Luxury Architecture & Construction",
+      title: "SK Construction | Luxury Architecture & Construction",
       description: "Spaces Designed To Be Lived In.",
     };
   }

@@ -18,7 +18,7 @@ export default async function AdminLayout({
       session={{
         name: session.name || "Administrator",
         role: session.role || "SUPER_ADMIN",
-        email: session.email || "admin@vijayinterior.com",
+        email: session.email || "admin@skconstruction.com",
       }}
     >
       {children}

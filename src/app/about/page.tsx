@@ -31,13 +31,13 @@ export default async function AboutPage() {
           <div className="absolute inset-0 architectural-grid-dark opacity-30 pointer-events-none" />
           <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
             <span className="text-[11px] font-mono-tech uppercase tracking-[0.28em] text-[#C5A880] block mb-3">
-              [ ABOUT VIJAY INTERIOR & CONSTRUCTION ]
+              [ ABOUT SK CONSTRUCTION ]
             </span>
             <h1 className="font-serif-heading text-4xl sm:text-6xl md:text-7xl tracking-tight text-white leading-[1.06] max-w-3xl">
               Architectural Vision Built with Industrial Precision.
             </h1>
             <p className="text-stone-300 text-sm sm:text-base font-light mt-6 max-w-2xl leading-relaxed">
-              Founded on the conviction that timeless architecture demands uncompromised craftsmanship, Vijay Interior & Construction bridges visionary spatial design with single-source turnkey civil execution.
+              Founded on the conviction that timeless architecture demands uncompromised craftsmanship, SK Construction bridges visionary spatial design with single-source turnkey civil execution.
             </p>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default async function AboutPage() {
                 For over a decade, homeowners and developers were forced to endure a disjointed process: hiring an interior decorator with no civil engineering experience, while contracting separate civil labor with no eye for millimeter millwork.
               </p>
               <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed">
-                Vijay Interior & Construction was created to dismantle this broken model. We operate our own in-house teams of registered architects, structural civil engineers, master stone masons, and cabinet makers. The result is seamless continuity, accurate budgets, and immaculate execution.
+                SK Construction was created to dismantle this broken model. We operate our own in-house teams of registered architects, structural civil engineers, master stone masons, and cabinet makers. The result is seamless continuity, accurate budgets, and immaculate execution.
               </p>
             </div>
 

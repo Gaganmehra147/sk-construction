@@ -8,21 +8,21 @@ async function main() {
 
   // 1. Admin Account
   const existingAdmin = await prisma.adminUser.findUnique({
-    where: { email: "admin@vijayinterior.com" },
+    where: { email: "admin@skconstruction.com" },
   });
 
   if (!existingAdmin) {
     const salt = await bcrypt.genSalt(10);
-    const passwordHash = await bcrypt.hash("admin@vijay2026", salt);
+    const passwordHash = await bcrypt.hash("admin@sk2026", salt);
     await prisma.adminUser.create({
       data: {
-        email: "admin@vijayinterior.com",
+        email: "admin@skconstruction.com",
         passwordHash,
-        name: "Vijay Sharma",
+        name: "SK Admin",
         role: "SUPER_ADMIN",
       },
     });
-    console.log("Admin user created: admin@vijayinterior.com / admin@vijay2026");
+    console.log("Admin user created: admin@skconstruction.com / admin@sk2026");
   }
 
   // 2. Services (10 Architectural Services)
@@ -227,7 +227,7 @@ async function main() {
       isFeatured: true,
       isPublished: true,
       sortOrder: 1,
-      seoTitle: "The Courtyard Residence | Luxury Architecture & Interior by Vijay Interior & Construction",
+      seoTitle: "The Courtyard Residence | Luxury Architecture & Interior by SK Construction",
       seoDesc: "7,200 sq.ft private estate in Jubilee Hills, Hyderabad featuring central water court, board-marked concrete, and bespoke interior millwork.",
     },
     {
@@ -256,7 +256,7 @@ async function main() {
       isFeatured: true,
       isPublished: true,
       sortOrder: 2,
-      seoTitle: "Soma Penthouse Atrium | Luxury Penthouse Interior by Vijay Interior & Construction",
+      seoTitle: "Soma Penthouse Atrium | Luxury Penthouse Interior by SK Construction",
       seoDesc: "Duplex penthouse interior architecture in Worli, Mumbai with sculptural spiral staircase and travertine paneling.",
     },
     {
@@ -284,7 +284,7 @@ async function main() {
       isFeatured: true,
       isPublished: true,
       sortOrder: 3,
-      seoTitle: "Verdant Villa Renovation | Architectural Remodeling by Vijay Interior & Construction",
+      seoTitle: "Verdant Villa Renovation | Architectural Remodeling by SK Construction",
       seoDesc: "Full structural renovation of a 6,100 sq.ft villa in Bengaluru with microcement floors and biophilic courtyards.",
     },
     {
@@ -312,7 +312,7 @@ async function main() {
       isFeatured: false,
       isPublished: true,
       sortOrder: 4,
-      seoTitle: "Linea Corporate Headquarters | Commercial Interior & Turnkey by Vijay Interior & Construction",
+      seoTitle: "Linea Corporate Headquarters | Commercial Interior & Turnkey by SK Construction",
       seoDesc: "18,500 sq.ft investment headquarters in Gurugram featuring high-performance acoustic architecture and marble reception.",
     },
     {
@@ -340,7 +340,7 @@ async function main() {
       isFeatured: true,
       isPublished: true,
       sortOrder: 5,
-      seoTitle: "The Travertine Retreat | Ground-Up Construction by Vijay Interior & Construction",
+      seoTitle: "The Travertine Retreat | Ground-Up Construction by SK Construction",
       seoDesc: "8,900 sq.ft coastal estate construction in Alibaug featuring monolithic travertine and net-zero water harvesting.",
     },
     {
@@ -368,7 +368,7 @@ async function main() {
       isFeatured: false,
       isPublished: true,
       sortOrder: 6,
-      seoTitle: "Aethel Minimalist Kitchen & Living | Modular Kitchen by Vijay Interior & Construction",
+      seoTitle: "Aethel Minimalist Kitchen & Living | Modular Kitchen by SK Construction",
       seoDesc: "Architectural kitchen studio in Vasant Vihar, New Delhi with 18-foot quartz island and German hardware.",
     },
   ];
@@ -488,7 +488,7 @@ async function main() {
       clientName: "Raghavendra & Sunita Rao",
       projectTitle: "The Courtyard Residence",
       location: "Jubilee Hills, Hyderabad",
-      review: "Vijay Interior & Construction delivered what three prior architecture firms deemed impossible on our rocky site. The precision of their civil masonry and the sheer poetry of the interior woodwork has given us a sanctuary our family cherishes daily. Their turnkey discipline meant we never had to worry about contractors.",
+      review: "SK Construction delivered what three prior architecture firms deemed impossible on our rocky site. The precision of their civil masonry and the sheer poetry of the interior woodwork has given us a sanctuary our family cherishes daily. Their turnkey discipline meant we never had to worry about contractors.",
       rating: 5,
       clientPhoto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
       isPublished: true,
@@ -498,7 +498,7 @@ async function main() {
       clientName: "Vikram Singhania",
       projectTitle: "Soma Penthouse Atrium",
       location: "Worli, Mumbai",
-      review: "Working with Vijay's team was an exercise in pure architectural rigor. The custom 14-tonne spiral staircase is a work of engineering art. They respect material integrity and never settle for standard catalog solutions. Truly a world-class studio.",
+      review: "Working with SK's team was an exercise in pure architectural rigor. The custom 14-tonne spiral staircase is a work of engineering art. They respect material integrity and never settle for standard catalog solutions. Truly a world-class studio.",
       rating: 5,
       clientPhoto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
       isPublished: true,
@@ -508,7 +508,7 @@ async function main() {
       clientName: "Dr. Ananya Sen",
       projectTitle: "Verdant Villa Renovation",
       location: "Koramangala, Bengaluru",
-      review: "Our 1990s house was dark and felt congested. Vijay's team took down structural walls, re-engineered the concrete columns, and brought the garden right into our living space. The transformation was completed within the agreed budget and handover date.",
+      review: "Our 1990s house was dark and felt congested. SK's team took down structural walls, re-engineered the concrete columns, and brought the garden right into our living space. The transformation was completed within the agreed budget and handover date.",
       rating: 5,
       clientPhoto: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
       isPublished: true,
@@ -538,14 +538,14 @@ async function main() {
         preferredStartDate: "Within 1 Month",
         message: "Looking for complete turnkey interior design for a 4-BHK penthouse in Greater Kailash. Interested in minimalist stone and wood aesthetics.",
         status: "QUALIFIED",
-        assignedTo: "Vijay Sharma",
+        assignedTo: "SK Admin",
       },
     });
 
     await prisma.leadNote.create({
       data: {
         leadId: lead1.id,
-        author: "Vijay Sharma",
+        author: "SK Admin",
         note: "Spoke with client. Site visit scheduled for this Saturday at 11:00 AM. Prepared portfolio samples of The Courtyard Residence.",
       },
     });
@@ -563,14 +563,14 @@ async function main() {
         preferredStartDate: "Immediate",
         message: "Need end-to-end civil construction and interior finishing for an independent villa plot in Whitefield.",
         status: "SITE_VISIT",
-        assignedTo: "Vijay Sharma",
+        assignedTo: "SK Admin",
       },
     });
 
     await prisma.leadNote.create({
       data: {
         leadId: lead2.id,
-        author: "Vijay Sharma",
+        author: "SK Admin",
         note: "Initial site inspection completed. Soil test report reviewed. Preparing structural BOQ and 3D concept render.",
       },
     });
@@ -578,18 +578,18 @@ async function main() {
 
   // 8. Site Settings
   const settings = [
-    { key: "business_name", value: "Vijay Interior & Construction" },
+    { key: "business_name", value: "SK Construction" },
     { key: "tagline", value: "Spaces Designed To Be Lived In." },
     { key: "phone", value: "+91 98765 43210" },
     { key: "whatsapp", value: "+91 98765 43210" },
-    { key: "email", value: "contact@vijayinterior.com" },
+    { key: "email", value: "contact@skconstruction.com" },
     { key: "address", value: "Plot 42, Architectural Enclave, Design District, New Delhi 110001" },
     { key: "working_hours", value: "Monday – Saturday: 9:30 AM – 7:00 PM" },
     { key: "google_maps_url", value: "https://maps.google.com/?q=New+Delhi+Design+District" },
     { key: "instagram", value: "https://instagram.com" },
     { key: "linkedin", value: "https://linkedin.com" },
     { key: "youtube", value: "https://youtube.com" },
-    { key: "footer_bio", value: "Vijay Interior & Construction is a comprehensive architecture, interior design, and turnkey civil construction firm crafting timeless spaces with unmatched material discipline." },
+    { key: "footer_bio", value: "SK Construction is a comprehensive architecture, interior design, and turnkey civil construction firm crafting timeless spaces with unmatched material discipline." },
   ];
 
   for (const s of settings) {
@@ -605,21 +605,21 @@ async function main() {
   const seoSettings = [
     {
       pageKey: "homepage",
-      title: "Vijay Interior & Construction | Luxury Architecture, Interiors & Turnkey Projects",
+      title: "SK Construction | Luxury Architecture, Interiors & Turnkey Projects",
       description: "Refined architecture, bespoke residential & commercial interiors, and turnkey civil construction. Spaces designed to be lived in.",
       ogImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85",
       keywords: "interior design, luxury architecture, turnkey construction, residential interiors, modular kitchen, civil construction, India",
     },
     {
       pageKey: "projects",
-      title: "Selected Works & Architectural Portfolio | Vijay Interior & Construction",
+      title: "Selected Works & Architectural Portfolio | SK Construction",
       description: "Explore our architectural portfolio spanning luxury villas, penthouses, commercial headquarters, and residential transformations.",
       ogImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=85",
       keywords: "architectural projects, interior design portfolio, luxury residences, renovation case studies",
     },
     {
       pageKey: "services",
-      title: "Architectural Services & Turnkey Execution | Vijay Interior & Construction",
+      title: "Architectural Services & Turnkey Execution | SK Construction",
       description: "Comprehensive design and construction disciplines: interior architecture, modular kitchens, civil construction, and turnkey project delivery.",
       ogImage: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=85",
       keywords: "interior architecture services, turnkey contractor, civil construction company, modular kitchen design",

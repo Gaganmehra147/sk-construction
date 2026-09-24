@@ -293,7 +293,7 @@ export default function LeadsClientCRM({ initialLeads }: LeadsClientCRMProps) {
                 <a
                   href={`https://wa.me/${selectedLead.phone.replace(/[^0-9]/g, "")}?text=Hello%20${encodeURIComponent(
                     selectedLead.name
-                  )},%20this%20is%20Vijay%20Interior%20%26%20Construction%20following%20up%20on%20your%20project%20enquiry.`}
+                  )},%20this%20is%20SK%20Construction%20following%20up%20on%20your%20project%20enquiry.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 py-2.5 bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] text-xs font-mono-tech uppercase hover:bg-[#25D366]/30 min-h-[44px]"

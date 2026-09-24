@@ -34,7 +34,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
             </h2>
           </div>
           <p className="text-stone-500 text-xs sm:text-sm font-light max-w-md">
-            Unfiltered reflections from homeowners, estate custodians, and enterprise leaders who inhabit spaces crafted by Vijay.
+            Unfiltered reflections from homeowners, estate custodians, and enterprise leaders who inhabit spaces crafted by SK Construction.
           </p>
         </div>
 

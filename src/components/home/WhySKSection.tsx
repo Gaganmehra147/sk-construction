@@ -1,4 +1,4 @@
-import { ShieldCheck, Ruler, Clock, Award } from "lucide-react";
+import { ShieldCheck, Ruler, Clock } from "lucide-react";
 
 export interface StatItemData {
   id: string;
@@ -8,11 +8,11 @@ export interface StatItemData {
   suffix?: string | null;
 }
 
-interface WhyVijaySectionProps {
+interface WhySKSectionProps {
   stats: StatItemData[];
 }
 
-export default function WhyVijaySection({ stats }: WhyVijaySectionProps) {
+export default function WhySKSection({ stats }: WhySKSectionProps) {
   return (
     <section className="py-24 sm:py-32 bg-[#121212] text-[#FBF9F5] relative overflow-hidden border-b border-white/10">
       {/* Blueprint grid */}
@@ -26,7 +26,7 @@ export default function WhyVijaySection({ stats }: WhyVijaySectionProps) {
               [ 08 // PROVEN CREDIBILITY ]
             </span>
             <h2 className="font-serif-heading text-3xl sm:text-5xl tracking-tight text-white">
-              Why Vijay Interior & Construction
+              Why SK Construction
             </h2>
           </div>
           <p className="text-stone-400 text-xs sm:text-sm font-light max-w-md">

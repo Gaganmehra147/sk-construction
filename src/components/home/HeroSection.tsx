@@ -45,7 +45,7 @@ export default function HeroSection() {
         <div className="hidden md:flex items-center justify-between text-[10px] font-mono-tech uppercase tracking-[0.25em] text-[#C5A880]/85 border-b border-white/10 pb-3.5">
           <span>PROJECT STUDIO • LAT 28°36&apos;N / LONG 77°12&apos;E</span>
           <span>ELEVATION +0.00 • TURNKEY & CIVIL ARCHITECTURE</span>
-          <span>SPEC: ARCH-2026-VIJAY</span>
+          <span>SPEC: ARCH-2026-SK</span>
         </div>
 
         {/* Main Hero Content Grid */}
@@ -74,7 +74,7 @@ export default function HeroSection() {
             <p className="text-stone-300 text-sm sm:text-lg md:text-xl font-light leading-relaxed max-w-2xl">
               From thoughtful interiors to complete civil construction,{" "}
               <strong className="text-white font-medium">
-                Vijay Interior & Construction
+                SK Construction
               </strong>{" "}
               creates refined spaces built around the way you live. Single-source
               accountability from concept sketches to turnkey handover.

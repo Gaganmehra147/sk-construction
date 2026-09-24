@@ -16,7 +16,7 @@ export default async function ContactPage() {
 
   const phone = settings.phone || "+91 98765 43210";
   const whatsapp = settings.whatsapp || "+91 98765 43210";
-  const email = settings.email || "contact@vijayinterior.com";
+  const email = settings.email || "contact@skconstruction.com";
   const address = settings.address || "Plot 42, Architectural Enclave, Design District, New Delhi 110001";
   const workingHours = settings.working_hours || "Monday – Saturday: 9:30 AM – 7:00 PM";
   const mapsUrl = settings.google_maps_url || "https://maps.google.com";

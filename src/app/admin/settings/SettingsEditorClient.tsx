@@ -54,7 +54,7 @@ export default function SettingsEditorClient({
             </label>
             <input
               type="text"
-              value={settings.business_name || "Vijay Interior & Construction"}
+              value={settings.business_name || "SK Construction"}
               onChange={(e) => handleChange("business_name", e.target.value)}
               className="w-full bg-[#1A1A1A] border border-white/15 px-3 py-2 text-white"
             />
@@ -102,7 +102,7 @@ export default function SettingsEditorClient({
             </label>
             <input
               type="email"
-              value={settings.email || "contact@vijayinterior.com"}
+              value={settings.email || "contact@skconstruction.com"}
               onChange={(e) => handleChange("email", e.target.value)}
               className="w-full bg-[#1A1A1A] border border-white/15 px-3 py-2 text-white"
             />

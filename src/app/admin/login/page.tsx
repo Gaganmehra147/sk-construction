@@ -6,8 +6,8 @@ import { Lock, Mail, ArrowRight, Shield, AlertCircle, Loader2 } from "lucide-rea
 import Link from "next/link";
 
 export default function AdminLoginPage() {
-  const [email, setEmail] = useState("admin@vijayinterior.com");
-  const [password, setPassword] = useState("admin@vijay2026");
+  const [email, setEmail] = useState("admin@skconstruction.com");
+  const [password, setPassword] = useState("admin@sk2026");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const router = useRouter();
@@ -51,7 +51,7 @@ export default function AdminLoginPage() {
         {/* Brand Icon */}
         <div className="flex justify-center mb-4">
           <div className="w-12 h-12 border-2 border-[#C5A880] flex items-center justify-center bg-[#1A1A1A]">
-            <span className="font-serif-heading text-lg font-bold text-[#C5A880]">V</span>
+            <span className="font-serif-heading text-lg font-bold text-[#C5A880]">SK</span>
           </div>
         </div>
 
@@ -59,13 +59,13 @@ export default function AdminLoginPage() {
           Studio Control Center
         </h2>
         <p className="mt-1 text-center text-xs font-mono-tech uppercase tracking-[0.2em] text-[#C5A880]">
-          Vijay Interior & Construction • Admin
+          SK Construction • Admin
         </p>
 
         {/* Credentials Notice Box */}
         <div className="mt-4 p-3 bg-[#1A1A1A] border border-white/10 text-stone-300 text-xs font-mono-tech flex items-center justify-between">
-          <span>DEFAULT: admin@vijayinterior.com</span>
-          <span className="text-[#C5A880]">admin@vijay2026</span>
+          <span>DEFAULT: admin@skconstruction.com</span>
+          <span className="text-[#C5A880]">admin@sk2026</span>
         </div>
       </div>
 
