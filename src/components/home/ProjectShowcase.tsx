@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, MapPin, Maximize2 } from "lucide-react";
+import { ArrowUpRight, MapPin, Layers, ArrowRight } from "lucide-react";
 
 export interface ProjectItem {
   id: string;
@@ -14,6 +14,8 @@ export interface ProjectItem {
   area: string;
   coverImage: string;
   materialsUsed: string;
+  overview?: string;
+  isFeatured?: boolean;
 }
 
 interface ProjectShowcaseProps {
@@ -26,8 +28,8 @@ export default function ProjectShowcase({ projects }: ProjectShowcaseProps) {
   const categories = [
     "All",
     "Residential",
-    "Commercial",
     "Luxury Interiors",
+    "Commercial",
     "Renovation",
     "Construction",
   ];
@@ -40,120 +42,170 @@ export default function ProjectShowcase({ projects }: ProjectShowcaseProps) {
         );
 
   return (
-    <section className="py-24 sm:py-32 bg-[#FBF9F5] text-[#141414] relative overflow-hidden border-b border-[#141414]/10">
+    <section className="py-20 sm:py-28 bg-[#FBF9F5] text-[#141414] relative overflow-hidden border-b border-[#141414]/10">
       {/* Blueprint grid overlay */}
-      <div className="absolute inset-0 architectural-grid opacity-30 pointer-events-none" />
+      <div className="absolute inset-0 architectural-grid opacity-25 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between border-b border-[#141414]/10 pb-8 mb-12 gap-6">
+        {/* Section Header & Architectural Filters */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between border-b border-[#141414]/10 pb-8 mb-12 gap-8">
           <div>
-            <span className="text-[11px] font-mono-tech uppercase tracking-[0.26em] text-[#8C827A] block mb-2">
-              [ 03 // PORTFOLIO ARCHIVE ]
-            </span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#141414]/15 bg-white text-[#8C827A] text-[10px] font-mono-tech uppercase tracking-[0.25em] mb-3">
+              <Layers className="w-3.5 h-3.5 text-[#C5A880]" />
+              <span>PORTFOLIO ARCHIVE • SELECTED COMMISSIONS</span>
+            </div>
             <h2 className="font-serif-heading text-3xl sm:text-5xl tracking-tight text-[#141414]">
-              Selected Work
+              Selected Works
             </h2>
-            <p className="text-stone-500 text-xs sm:text-sm font-light mt-2">
-              Spaces we&apos;ve designed, built and transformed.
+            <p className="text-stone-600 text-sm font-light mt-2 max-w-xl leading-relaxed">
+              A curated anthology of private residences, commercial headquarters, and transformative renovations executed with architectural rigor.
             </p>
           </div>
 
-          {/* Category Filter Pills - Horizontally scrollable on mobile */}
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 max-w-full">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.14em] transition-all duration-300 border shrink-0 min-h-[38px] ${
-                  selectedCategory === cat
-                    ? "bg-[#141414] text-[#FBF9F5] border-[#141414]"
-                    : "bg-white text-stone-600 border-stone-200 hover:border-[#141414] hover:text-[#141414]"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          {/* Minimalist Tab Switcher */}
+          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar pb-1 max-w-full">
+            {categories.map((cat) => {
+              const count =
+                cat === "All"
+                  ? projects.length
+                  : projects.filter((p) => p.category.toLowerCase() === cat.toLowerCase()).length;
+              const isSelected = selectedCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-4 py-2 text-xs font-mono-tech uppercase tracking-wider transition-all duration-300 border shrink-0 flex items-center gap-2 ${
+                    isSelected
+                      ? "bg-[#141414] text-[#FBF9F5] border-[#141414] shadow-md"
+                      : "bg-white text-stone-600 border-stone-200 hover:border-[#141414] hover:text-[#141414]"
+                  }`}
+                >
+                  <span>{cat}</span>
+                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isSelected ? "bg-white/20 text-white" : "bg-stone-100 text-stone-500"}`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Editorial Masonry Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        {/* Clean Balanced Gallery Grid (2 Columns on Tablet/Desktop, High-End Card Architecture) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {filteredProjects.map((project, idx) => {
-            // Editorial layout variation: alternate column spans for visual rhythm
-            const colSpan =
-              idx % 3 === 0
-                ? "lg:col-span-8"
-                : idx % 3 === 1
-                ? "lg:col-span-4"
-                : "lg:col-span-6";
-
-            const heightClass =
-              idx % 3 === 0
-                ? "h-[320px] sm:h-[420px] lg:h-[480px] xl:h-[540px]"
-                : "h-[300px] sm:h-[380px] lg:h-[420px] xl:h-[460px]";
+            const firstMaterial = project.materialsUsed.split(",")[0]?.trim();
+            const isFirstMasterpiece = idx === 0 && selectedCategory === "All";
 
             return (
-              <div key={project.slug} className={`${colSpan} group relative`}>
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="block relative overflow-hidden bg-[#1A1A1A] border border-[#141414]/10 shadow-sm"
-                >
-                  {/* Project Image with hover zoom */}
+              <div
+                key={project.slug}
+                className={`${isFirstMasterpiece ? "md:col-span-2" : "col-span-1"} group flex flex-col bg-white border border-[#141414]/10 transition-all duration-500 hover:border-[#C5A880] hover:shadow-xl`}
+              >
+                <Link href={`/projects/${project.slug}`} className="block overflow-hidden relative">
+                  {/* Photo Frame with Aspect Ratio */}
                   <div
-                    className={`w-full ${heightClass} bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105`}
-                    style={{ backgroundImage: `url('${project.coverImage}')` }}
-                  />
+                    className={`w-full ${
+                      isFirstMasterpiece
+                        ? "h-[360px] sm:h-[480px] lg:h-[540px]"
+                        : "h-[280px] sm:h-[360px] lg:h-[400px]"
+                    } overflow-hidden bg-stone-900 relative`}
+                  >
+                    <div
+                      className="w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+                      style={{ backgroundImage: `url('${project.coverImage}')` }}
+                    />
 
-                  {/* Gradient Overlay for Editorial Contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#141414]/90 via-[#141414]/40 to-transparent transition-opacity duration-500 opacity-90 group-hover:opacity-95" />
-
-                  {/* Top Technical Metadata Tag */}
-                  <div className="absolute top-3 sm:top-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between text-[9px] sm:text-[10px] font-mono-tech uppercase tracking-[0.16em] sm:tracking-[0.2em] text-[#FBF9F5]/90 pointer-events-none">
-                    <span className="bg-[#141414]/75 backdrop-blur-sm px-2.5 py-1 border border-white/10 truncate max-w-[48%]">
-                      {project.category}
-                    </span>
-                    <span className="bg-[#141414]/75 backdrop-blur-sm px-2.5 py-1 border border-white/10 truncate max-w-[48%]">
-                      {project.year} • {project.area}
-                    </span>
-                  </div>
-
-                  {/* Bottom Content (Always clearly visible on touch, graceful hover on desktop) */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7 transition-transform duration-500 transform translate-y-0 lg:translate-y-1 group-hover:translate-y-0">
-                    <div className="flex items-center gap-1.5 text-stone-300 text-xs mb-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-[#C5A880] shrink-0" />
-                      <span className="truncate">{project.location}</span>
+                    {/* Subtle Corner Badge */}
+                    <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
+                      <span className="px-3 py-1 bg-[#141414]/85 backdrop-blur-md text-[10px] font-mono-tech uppercase tracking-widest text-white border border-white/10">
+                        {project.category}
+                      </span>
+                      {isFirstMasterpiece && (
+                        <span className="px-3 py-1 bg-[#C5A880] text-[10px] font-mono-tech uppercase tracking-widest text-[#121212] font-semibold">
+                          FEATURED RESIDENCE
+                        </span>
+                      )}
                     </div>
 
-                    <h3 className="font-serif-heading text-lg sm:text-2xl text-white font-semibold mb-2.5 leading-snug">
-                      {project.title}
-                    </h3>
+                    {/* Top Right Area Badge */}
+                    <div className="absolute top-4 right-4 z-10 px-3 py-1 bg-[#141414]/85 backdrop-blur-md text-[10px] font-mono-tech text-[#C5A880] border border-white/10">
+                      {project.area}
+                    </div>
 
-                    {/* View project button & specs indicator */}
-                    <div className="flex items-center justify-between pt-2 border-t border-white/15 opacity-90 group-hover:opacity-100 transition-opacity">
-                      <span className="text-[10px] sm:text-[11px] font-mono-tech uppercase tracking-wider text-[#C5A880] truncate max-w-[60%]">
-                        {project.materialsUsed.split(",")[0]}
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.16em] font-semibold text-white group-hover:text-[#C5A880] transition-colors shrink-0">
-                        <span>View Project</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                      </span>
+                    {/* Subtle Hover Overlay with Arrow */}
+                    <div className="absolute inset-0 bg-[#121212]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-[#141414]/90 text-white flex items-center justify-center shadow-2xl border border-[#C5A880]/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                        <ArrowUpRight className="w-5 h-5 text-[#C5A880]" />
+                      </div>
                     </div>
                   </div>
                 </Link>
+
+                {/* Editorial Typography & Metadata Section (Cleanly below image) */}
+                <div className="p-6 sm:p-7 flex flex-col justify-between flex-1 space-y-4">
+                  <div>
+                    {/* Location & Year */}
+                    <div className="flex items-center justify-between text-xs text-stone-500 mb-2">
+                      <div className="flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5 text-[#C5A880] shrink-0" />
+                        <span className="font-mono-tech uppercase tracking-wider text-[11px] text-stone-600">
+                          {project.location}
+                        </span>
+                      </div>
+                      <span className="font-mono-tech text-[11px] text-stone-400">
+                        COMPLETED {project.year}
+                      </span>
+                    </div>
+
+                    {/* Project Title */}
+                    <h3 className="font-serif-heading text-xl sm:text-2xl lg:text-3xl font-normal text-[#141414] group-hover:text-[#8B6F57] transition-colors leading-snug">
+                      <Link href={`/projects/${project.slug}`}>
+                        {project.title}
+                      </Link>
+                    </h3>
+
+                    {/* Optional overview preview if available */}
+                    {project.overview && (
+                      <p className="text-stone-600 text-xs sm:text-sm font-light mt-2 line-clamp-2 leading-relaxed">
+                        {project.overview}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Bottom Strip: Primary Material & Action */}
+                  <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
+                    <div className="flex items-center gap-2 truncate max-w-[65%]">
+                      <span className="text-[10px] font-mono-tech uppercase tracking-wider text-[#8C827A]">
+                        PRIMARY FINISH:
+                      </span>
+                      <span className="text-xs font-mono-tech uppercase text-[#141414] font-medium truncate">
+                        {firstMaterial || "Natural Stone"}
+                      </span>
+                    </div>
+
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-mono-tech uppercase tracking-wider font-semibold text-[#141414] group-hover:text-[#8B6F57] transition-colors shrink-0"
+                    >
+                      <span>Case Study</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
               </div>
             );
           })}
         </div>
 
-        {/* Explore All Works Button */}
-        <div className="pt-16 text-center">
+        {/* Bottom CTA: View Archive */}
+        <div className="pt-16 sm:pt-20 text-center">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#141414] text-[#FBF9F5] text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#C5A880] hover:text-[#141414] transition-colors border border-[#141414]"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-[#141414] text-[#FBF9F5] text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#C5A880] hover:text-[#141414] transition-all duration-300 border border-[#141414] shadow-lg"
           >
-            <span>View Complete Project Archive</span>
-            <Maximize2 className="w-4 h-4" />
+            <span>Explore Complete Architectural Archive</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
           </Link>
         </div>
       </div>

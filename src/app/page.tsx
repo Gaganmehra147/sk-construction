@@ -5,7 +5,6 @@ import HeroSection from "@/components/home/HeroSection";
 import BrandStatement from "@/components/home/BrandStatement";
 import ServicesSection from "@/components/home/ServicesSection";
 import ProjectShowcase from "@/components/home/ProjectShowcase";
-import ThreeDViewer from "@/components/home/ThreeDViewer";
 import WhySKSection from "@/components/home/WhySKSection";
 import BeforeAfterSlider from "@/components/home/BeforeAfterSlider";
 import ProcessSection from "@/components/home/ProcessSection";
@@ -89,7 +88,7 @@ export default async function HomePage() {
       {/* Main Content Sections in Prompt-Specified Sequence */}
       <main className="flex-1">
         {/* 1. Premium Cinematic Hero */}
-        <HeroSection />
+        <HeroSection whatsapp={whatsapp} />
 
         {/* 2. Brand Editorial Statement */}
         <BrandStatement />
@@ -100,16 +99,13 @@ export default async function HomePage() {
         {/* 4. Selected Projects Masonry Showcase */}
         <ProjectShowcase projects={projects} />
 
-        {/* 5. 3D Architectural Spatial Experience */}
-        <ThreeDViewer />
-
-        {/* 6. Why SK Construction Trust Metrics */}
+        {/* 5. Why SK Construction Trust Metrics */}
         <WhySKSection stats={stats} />
 
-        {/* 7. Before / After Transformation Slider */}
+        {/* 6. Before / After Transformation Slider */}
         <BeforeAfterSlider />
 
-        {/* 8. 9-Stage Architectural Process */}
+        {/* 7. 9-Stage Architectural Process */}
         <ProcessSection />
 
         {/* 9. Craftsmanship & Materials Showcase */}
